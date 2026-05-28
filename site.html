@@ -1,18 +1,26 @@
 <html>
     <head>
-        <title>Calculadora v0.9B</title>
-        <link rel="stylesheet" href="style.css">
+        <title>Calculadora Beta 2.0</title>
+        <link rel="stylesheet" href="style.css"></link>
         <script src="backend.js" defer></script>
     </head>
     <body>
-        <button id="1" class="butao">1</button><button id="2" class="butao">2</button><button id="3" class="butao">3</button>
-        <div></div>
-        <button id="4" class="butao">4</button><button id="5" class="butao">5</button><button id="6" class="butao">6</button>
-        <div></div>
-        <button id="7" class="butao">7</button><button id="8" class="butao">8</button><button id="9" class="butao">9</button>
-        <div></div>
-        <button id="0" class="butao">0</button><button id="10" class="butao">+</button><button class="butao">=</button>
-        <div></div>
-        <p>Resultado:</p> <p id="nmbrdigitado" hidden>ronaldo</p>
+<input type="text" id="display" readonly></input>
+
+<div class="teclado">
+    <button class="btn-numero" value="1">1</button>
+    <button class="btn-numero" value="2">2</button>
+    <button class="btn-numero" value="3">3</button>
+    <button class="btn-numero" value="4">4</button>
+    <button class="btn-numero" value="5">5</button>
+    <button class="btn-numero" value="6">6</button>
+    <button class="btn-numero" value="7">7</button>
+    <button class="btn-numero" value="8">8</button>
+    <button class="btn-numero" value="9">9</button>
+    <button class="btn-numero" value="0">0</button>
+</div>
+
+<button onclick="somar()">+</button>
+<button onclick="calcular()">=</button>
     </body>
 </html>

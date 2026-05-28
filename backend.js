@@ -1,17 +1,29 @@
-const nmbrdigitado = String(document.getElementById('nmbrdigitado'))
+const display = document.getElementById('display');
+const botoesNumeros = document.querySelectorAll('.btn-numero');
+const storedValue = 0;
 
-const button = document.getElementsByClassName('butao');
+botoesNumeros.forEach(botao => {
 
-console.log(button)
-
-const table = []
-
-table.push(button)
-
-
-table[0].addEventListener('click', () => {
-    nmbrdigitado.hidden = false;
-    nmbrdigitado.textContent = ("Hello World");
+    botao.addEventListener('click', (e) => {
+        const numeroClicado = e.target.value;
+        
+        adicionarNumeroNoDisplay(numeroClicado);
+    });
 });
 
-// preciso adicionar
+function adicionarNumeroNoDisplay(numero) {
+    display.value += numero; 
+}
+
+function somar() {
+    storedValue.value = display.value;
+    display.value = "";
+}
+
+function calcular() {
+    console.log(display.value);
+    console.log(storedValue.value);
+    const result = Number(display.value) + Number(storedValue.value);
+    console.log(result)
+    display.value = result;
+}
