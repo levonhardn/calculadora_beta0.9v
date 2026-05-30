@@ -29,9 +29,25 @@ function somar() {
     deveLimparDisplay = true;
 }
 
+function menos() {
+    resultadoAnterior = Number(display.value || 0);
+    operacaoAtual = "menos";
+    deveLimparDisplay = true;
+}
+
+
 function calcular() {
     if (operacaoAtual === "soma") {
         ultimoNumeroSomado = Number(display.value || 0);
+        resultadoAnterior += ultimoNumeroSomado;
+        display.value = resultadoAnterior;
+        operacaoAtual = null;
+        deveLimparDisplay = true;
+        return;
+    }
+
+        if (operacaoAtual === "menos") {
+        ultimoNumeroSomado = -1*Number(display.value || 0);
         resultadoAnterior += ultimoNumeroSomado;
         display.value = resultadoAnterior;
         operacaoAtual = null;
