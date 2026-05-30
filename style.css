@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #f3f3f3;
+}
+
+#display {
+    width: 320px;
+    height: 70px;
+    padding: 0 16px;
+    font-size: 36px;
+    text-align: right;
+    border: 2px solid #222;
+    border-radius: 8px;
+}
+
+.teclado {
+    width: 360px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+button {
+    width: 100px;
+    height: 70px;
+    font-size: 28px;
+    cursor: pointer;
+    border: 2px solid #222;
+    border-radius: 8px;
+}
+
+.teclado button {
+    width: 100%;
+}

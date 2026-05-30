@@ -1,6 +1,9 @@
 const display = document.getElementById('display');
 const botoesNumeros = document.querySelectorAll('.btn-numero');
-const storedValue = 0;
+let resultadoAnterior = null;
+let operacaoAtual = null;
+let ultimoNumeroSomado = null;
+let deveLimparDisplay = false;
 
 botoesNumeros.forEach(botao => {
 
@@ -12,18 +15,33 @@ botoesNumeros.forEach(botao => {
 });
 
 function adicionarNumeroNoDisplay(numero) {
+    if (deveLimparDisplay) {
+        display.value = "";
+        deveLimparDisplay = false;
+    }
+
     display.value += numero; 
 }
 
 function somar() {
-    storedValue.value = display.value;
-    display.value = "";
+    resultadoAnterior = Number(display.value || 0);
+    operacaoAtual = "soma";
+    deveLimparDisplay = true;
 }
 
 function calcular() {
-    console.log(display.value);
-    console.log(storedValue.value);
-    const result = Number(display.value) + Number(storedValue.value);
-    console.log(result)
-    display.value = result;
+    if (operacaoAtual === "soma") {
+        ultimoNumeroSomado = Number(display.value || 0);
+        resultadoAnterior += ultimoNumeroSomado;
+        display.value = resultadoAnterior;
+        operacaoAtual = null;
+        deveLimparDisplay = true;
+        return;
+    }
+
+    if (ultimoNumeroSomado !== null) {
+        resultadoAnterior = Number(display.value || 0) + ultimoNumeroSomado;
+        display.value = resultadoAnterior;
+        deveLimparDisplay = true;
+    }
 }
